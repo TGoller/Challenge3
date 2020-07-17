@@ -1,0 +1,14 @@
+{
+  "name": "codechallenge-3",
+  "version": "1.0.0",
+  "description": "Code Challenge 3",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Tracy",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
