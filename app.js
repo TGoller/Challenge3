@@ -1,29 +1,24 @@
 var express = require('express');
 var app = express();
-const fetch = require("node-fetch");
+const axios = require('axios');
 
  app.get('/',function(req,res){
     res.write('Liberty Mutual Blogging Application');
-    
     res.end();
 }) 
 
-app.get('/posts', function(req,res){
-   
-    var posts = fetch("https://jsonplaceholder.typicode.com/posts");
-   
-    //res.send(posts);
-    res.json(posts);
-   
+app.get('/posts', async function(req,res){
+    var posts = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    res.json(posts.data);
+    res.end();
 });
 
 
-app.get('/posts/id', function(req,res){
-   
-    var posts = fetch("https://jsonplaceholder.typicode.com/posts/id");
-   
-    res.send(posts);
-    //res.json(posts);
-   
+app.get('/posts/id', async function(req,res){
+    var onePost = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+    res.json(onePost.data);
+    res.end();
+    
 });
+
 app.listen(3000);
